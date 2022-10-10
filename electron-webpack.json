@@ -1,0 +1,13 @@
+{
+    "whiteListedModules": [
+        "react",
+        "react-dom"
+    ],
+    "main": {
+        "webpackConfig": "webpack.main.config.js"
+    },
+    "renderer": {
+        "webpackConfig": "webpack.renderer.config.js",
+        "template": "src/renderer/index.html"
+    }
+}
