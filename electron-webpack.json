@@ -1,7 +1,8 @@
 {
     "whiteListedModules": [
         "react",
-        "react-dom"
+        "react-dom",
+        "react-redux"
     ],
     "main": {
         "webpackConfig": "webpack.main.config.js"

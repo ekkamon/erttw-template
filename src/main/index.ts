@@ -58,10 +58,6 @@ const appListeners = async () => {
 };
 
 const installTools = () => {
-  if (process.env.NODE_ENV != 'development') {
-    return;
-  }
-
   installExtension(REACT_DEVELOPER_TOOLS)
     .then((name) => console.log(`Added Extension:  ${name}`))
     .catch((err) => console.log('An error occurred: ', err));
@@ -71,12 +67,14 @@ const installTools = () => {
     .catch((err) => console.log('An error occurred: ', err));
 };
 
-app
-  .on('ready', createWindow)
-  .whenReady()
-  .then(appListeners)
-  .then(installTools)
-  .catch((err) => console.error(err));
+app.on('ready', () => {
+  createWindow();
+  appListeners();
+
+  if (process.env.NODE_ENV == 'development') {
+    installTools();
+  }
+});
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
