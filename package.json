@@ -1,5 +1,6 @@
 {
   "name": "erttw-template-app",
+  "productName": "ERTTW Template",
   "version": "1.0.0",
   "description": "Desktop application to start game",
   "main": "webpack/main/main.js",
