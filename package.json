@@ -2,7 +2,7 @@
   "name": "erttw-template-app",
   "productName": "ERTTW Template",
   "version": "1.0.0",
-  "description": "Desktop application to start game",
+  "description": "Desktop application",
   "main": "webpack/main/main.js",
   "scripts": {
     "compile:base:main": "webpack --config webpack.main.config.js",
