@@ -17,6 +17,7 @@ function initializeApp() {
       minHeight: 800,
       resizable: false,
       frame: false,
+      show: false,
       backgroundColor: '#191919',
       webPreferences: {
         nodeIntegration: true,
@@ -33,6 +34,10 @@ function initializeApp() {
     } else {
       mainWindow.loadFile(path.join(__dirname, '../renderer/index.html'));
     }
+
+    mainWindow.once('ready-to-show', () => {
+      mainWindow.show();
+    });
 
     mainWindow.on('closed', () => {
       mainWindow?.removeAllListeners();
