@@ -17,7 +17,7 @@
     "compile:watch:main": "webpack serve --config webpack.main.config.js --mode=development",
     "compile:watch:renderer": "webpack serve --config webpack.renderer.config.js --mode=development",
     "start": "npm run compile:prod && electron webpack/main/main.js",
-    "dev": "npm run compile:dev:main && concurrently --kill-others -n renderer,electron \"npm:compile:watch:renderer\" \"electron webpack/main/main.js --serve\"",
+    "dev": "npm run compile:dev:main && concurrently --kill-others -n renderer,electron \"npm:compile:watch:renderer\" \"wait-on tcp:8080 && electron webpack/main/main.js --serve\"",
     "package": "npm run compile:prod && electron-builder --win --publish=never"
   },
   "author": "ZECON",
@@ -55,6 +55,7 @@
     "ts-node": "^10.9.1",
     "typescript": "^4.8.4",
     "url-loader": "^4.1.1",
+    "wait-on": "^6.0.1",
     "webpack": "^5.74.0",
     "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^4.11.1"
